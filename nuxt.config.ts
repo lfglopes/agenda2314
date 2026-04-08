@@ -10,6 +10,11 @@ export default defineNuxtConfig({
     '@nuxthub/core',
   ],
 
+  colorMode: {
+    preference: 'light',
+    fallback: 'light',
+  },
+
   hub: {
     db: 'sqlite',
     kv: true,
