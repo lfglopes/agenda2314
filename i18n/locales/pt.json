@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "calendar": "Calendário",
+    "list": "Lista",
+    "submit": "Enviar evento"
+  },
+  "calendar": {
+    "title": "Calendário de eventos",
+    "noEvents": "Sem eventos neste dia.",
+    "subscribe": "Subscrever calendário"
+  },
+  "event": {
+    "location": "Local",
+    "starts": "Início",
+    "ends": "Fim",
+    "addToCalendar": "Adicionar ao calendário",
+    "organiser": "Organizador",
+    "viewDetails": "Ver detalhes"
+  },
+  "errors": {
+    "notFound": "Página não encontrada"
+  }
+}

@@ -7,6 +7,30 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxtjs/i18n',
     '@nuxt/ui',
-    '@nuxthub/core'
-  ]
+    '@nuxthub/core',
+  ],
+
+  hub: {
+    db: 'sqlite',
+  },
+
+  css: ['~/assets/css/main.css'],
+
+  i18n: {
+    defaultLocale: 'pt',
+    strategy: 'no_prefix',
+    langDir: 'locales',
+    locales: [
+      { code: 'pt', language: 'pt-PT', file: 'pt.json', name: 'Português' },
+      { code: 'de', language: 'de-DE', file: 'de.json', name: 'Deutsch' },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+    },
+  },
+
+  runtimeConfig: {
+    siteUrl: 'http://localhost:3000',
+  },
 })

@@ -10,12 +10,20 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.20",
+    "@fullcalendar/daygrid": "^6.1.20",
+    "@fullcalendar/vue3": "^6.1.20",
+    "@libsql/client": "^0.17.2",
     "@nuxt/eslint": "1.15.2",
     "@nuxt/ui": "4.6.1",
     "@nuxthub/core": "0.10.7",
     "@nuxtjs/i18n": "10.2.4",
+    "drizzle-orm": "^0.45.2",
     "nuxt": "^4.4.2",
     "vue": "^3.5.32",
     "vue-router": "^5.0.4"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.10"
   }
 }

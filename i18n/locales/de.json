@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "calendar": "Kalender",
+    "list": "Liste",
+    "submit": "Veranstaltung einreichen"
+  },
+  "calendar": {
+    "title": "Veranstaltungskalender",
+    "noEvents": "Keine Veranstaltungen an diesem Tag.",
+    "subscribe": "Kalender abonnieren"
+  },
+  "event": {
+    "location": "Ort",
+    "starts": "Beginn",
+    "ends": "Ende",
+    "addToCalendar": "Zum Kalender hinzufügen",
+    "organiser": "Veranstalter",
+    "viewDetails": "Details anzeigen"
+  },
+  "errors": {
+    "notFound": "Seite nicht gefunden"
+  }
+}

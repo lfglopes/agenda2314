@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  --color-red-500: #C0392B;
+  --color-red-400: #E74C3C;
+  --color-red-450: #d53126;
+  --color-red-600: #A93226;
+  --color-stone-950: #1A1A1A;
+}
+
+/* FullCalendar theme overrides */
+:root {
+  --fc-border-color: #e7e5e4;           /* stone-200 */
+  --fc-today-bg-color: #fef2f2;         /* red-50 */
+  --fc-event-bg-color: #C0392B;         /* red-500 */
+  --fc-event-border-color: #A93226;     /* red-600 */
+  --fc-event-text-color: #ffffff;
+  --fc-button-bg-color: #C0392B;
+  --fc-button-border-color: #A93226;
+  --fc-button-hover-bg-color: #A93226;
+  --fc-button-active-bg-color: #922B21;
+  --fc-page-bg-color: transparent;
+}
