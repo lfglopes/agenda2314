@@ -29,6 +29,28 @@
   "errors": {
     "notFound": "Seite nicht gefunden"
   },
+  "submit": {
+    "title": "Veranstaltung einreichen",
+    "eventTitle": "Titel",
+    "description": "Beschreibung",
+    "startAt": "Beginn",
+    "endAt": "Ende",
+    "location": "Ort",
+    "email": "Ihre E-Mail",
+    "name": "Ihr Name (optional)",
+    "send": "Absenden",
+    "successTitle": "Veranstaltung eingereicht!",
+    "successMessage": "Bitte überprüfen Sie Ihre E-Mail, um die Einreichung zu bestätigen.",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "errorEndBeforeStart": "Das Enddatum muss nach dem Startdatum liegen."
+  },
+  "confirm": {
+    "successTitle": "Veranstaltung bestätigt!",
+    "successMessage": "Ihre Veranstaltung ist jetzt im Kalender sichtbar.",
+    "errorExpired": "Dieser Link ist abgelaufen.",
+    "errorInvalid": "Ungültiger Link.",
+    "backToCalendar": "Zum Kalender"
+  },
   "mod": {
     "login": "Anmelden",
     "logout": "Abmelden",

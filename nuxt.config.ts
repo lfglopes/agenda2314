@@ -45,6 +45,8 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    resendApiKey: '',
+    requireModeration: '',
     siteUrl: 'http://localhost:3000',
   },
 

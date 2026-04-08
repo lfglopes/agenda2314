@@ -29,6 +29,28 @@
   "errors": {
     "notFound": "Página não encontrada"
   },
+  "submit": {
+    "title": "Submeter evento",
+    "eventTitle": "Título",
+    "description": "Descrição",
+    "startAt": "Início",
+    "endAt": "Fim",
+    "location": "Local",
+    "email": "O seu email",
+    "name": "O seu nome (opcional)",
+    "send": "Enviar",
+    "successTitle": "Evento enviado!",
+    "successMessage": "Verifique o seu email para confirmar o envio do evento.",
+    "error": "Ocorreu um erro. Tente novamente.",
+    "errorEndBeforeStart": "A data de fim tem de ser posterior à data de início."
+  },
+  "confirm": {
+    "successTitle": "Evento confirmado!",
+    "successMessage": "O teu evento está agora visível no calendário.",
+    "errorExpired": "Este link já expirou.",
+    "errorInvalid": "Link inválido.",
+    "backToCalendar": "Ver calendário"
+  },
   "mod": {
     "login": "Entrar",
     "logout": "Sair",
