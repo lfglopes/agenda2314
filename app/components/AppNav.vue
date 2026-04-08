@@ -24,3 +24,4 @@ const isSubmitOpen = ref(false)
   </nav>
   <SubmitEventModal v-model:open="isSubmitOpen" />
 </template>
+
