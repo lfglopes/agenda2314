@@ -12,6 +12,7 @@ export default defineNuxtConfig({
 
   hub: {
     db: 'sqlite',
+    kv: true,
   },
 
   css: ['~/assets/css/main.css'],

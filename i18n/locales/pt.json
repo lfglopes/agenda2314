@@ -28,5 +28,26 @@
   },
   "errors": {
     "notFound": "Página não encontrada"
+  },
+  "mod": {
+    "login": "Entrar",
+    "logout": "Sair",
+    "email": "Email",
+    "password": "Palavra-passe",
+    "loginError": "Email ou palavra-passe incorretos",
+    "dashboard": "Moderação",
+    "all": "Todos",
+    "pending": "Pendentes",
+    "approved": "Aprovados",
+    "rejected": "Rejeitados",
+    "unconfirmed": "Não confirmados",
+    "approve": "Aprovar",
+    "reject": "Rejeitar",
+    "title": "Título",
+    "submitter": "Submissor",
+    "date": "Data",
+    "status": "Estado",
+    "actions": "Ações",
+    "notes": "Notas"
   }
 }

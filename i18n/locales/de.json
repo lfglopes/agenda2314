@@ -28,5 +28,26 @@
   },
   "errors": {
     "notFound": "Seite nicht gefunden"
+  },
+  "mod": {
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "loginError": "E-Mail oder Passwort falsch",
+    "dashboard": "Moderation",
+    "all": "Alle",
+    "pending": "Ausstehend",
+    "approved": "Genehmigt",
+    "rejected": "Abgelehnt",
+    "unconfirmed": "Unbestätigt",
+    "approve": "Genehmigen",
+    "reject": "Ablehnen",
+    "title": "Titel",
+    "submitter": "Einsender",
+    "date": "Datum",
+    "status": "Status",
+    "actions": "Aktionen",
+    "notes": "Notizen"
   }
 }
