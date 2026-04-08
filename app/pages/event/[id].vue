@@ -19,10 +19,10 @@ const { formatDateRange } = useFormatDate()
     </NuxtLink>
     <h1 class="text-3xl font-bold mb-4">{{ event?.title }}</h1>
     <p class="text-muted mb-4">{{ formatDateRange(event!.start_at, event!.end_at) }}</p>
-    <p v-if="event?.location" class="mb-4 flex items-center gap-1">
+    <a v-if="event?.location" :href="`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`" target="_blank" rel="noopener" class="mb-4 flex items-center gap-1 text-stone-500 hover:text-red-600 transition-colors">
       <UIcon name="i-lucide-map-pin" class="size-4" />
       {{ event.location }}
-    </p>
+    </a>
     <p v-if="event?.description" class="mb-6 whitespace-pre-line">{{ event.description }}</p>
     <p v-if="event?.submitter_name" class="text-sm text-muted mb-6">
       {{ $t('event.organiser') }}: {{ event.submitter_name }}

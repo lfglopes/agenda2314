@@ -30,6 +30,19 @@ export default defineNuxtConfig({
     },
   },
 
+  app: {
+    head: {
+      titleTemplate: '%s · Agenda cultural 2314',
+      htmlAttrs: { lang: 'pt' },
+      link: [
+        { rel: 'icon', type: 'image/webp', href: '/favicon.webp' },
+      ],
+      meta: [
+        { name: 'description', content: 'Agenda cultural do 2314 — calendário de eventos' },
+      ],
+    },
+  },
+
   runtimeConfig: {
     siteUrl: 'http://localhost:3000',
   },

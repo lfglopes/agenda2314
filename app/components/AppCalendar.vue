@@ -2,10 +2,10 @@
 import FullCalendar from '@fullcalendar/vue3'
 import dayGridPlugin from '@fullcalendar/daygrid'
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const selectedEventId = ref<string | null>(null)
 
-const calendarOptions = {
+const calendarOptions = computed(() => ({
   plugins: [dayGridPlugin],
   initialView: 'dayGridMonth',
   headerToolbar: {
@@ -17,6 +17,7 @@ const calendarOptions = {
   expandRows: true,
   firstDay: 1,
   locale: locale.value,
+  buttonText: { today: t('calendar.today') },
   events: async (fetchInfo: { startStr: string; endStr: string }, successCallback: Function, failureCallback: Function) => {
     try {
       const data = await $fetch<any[]>('/api/events', {
@@ -39,7 +40,7 @@ const calendarOptions = {
     info.jsEvent.preventDefault()
     selectedEventId.value = info.event.id
   },
-}
+}))
 </script>
 
 <template>
@@ -48,3 +49,9 @@ const calendarOptions = {
     <EventModal :event-id="selectedEventId" @close="selectedEventId = null" />
   </div>
 </template>
+
+<style scoped>
+:deep(.fc-event) {
+  cursor: pointer;
+}
+</style>
