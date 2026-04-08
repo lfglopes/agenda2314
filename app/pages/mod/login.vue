@@ -15,7 +15,7 @@ async function login() {
       method: 'POST',
       body: { email: email.value, password: password.value },
     })
-    await navigateTo('/mod')
+    await navigateTo('/mod', { external: true })
   }
   catch {
     error.value = 'Email ou palavra-passe incorretos'

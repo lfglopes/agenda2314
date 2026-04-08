@@ -1,4 +1,5 @@
 import type { H3Event } from 'h3'
+import { kv } from '@nuxthub/kv'
 
 interface ModSession {
   id: string
@@ -11,7 +12,7 @@ export async function requireModAuth(event: H3Event): Promise<ModSession> {
   if (!token) {
     throw createError({ statusCode: 401, statusMessage: 'Unauthorized' })
   }
-  const session = await hubKV().get<ModSession>(`mod:session:${token}`)
+  const session = await kv.get<ModSession>(`mod:session:${token}`)
   if (!session) {
     throw createError({ statusCode: 401, statusMessage: 'Unauthorized' })
   }

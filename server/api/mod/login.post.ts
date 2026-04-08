@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs'
 import { eq } from 'drizzle-orm'
+import { kv } from '@nuxthub/kv'
 
 export default defineEventHandler(async (event) => {
   const { email, password } = await readBody(event)
@@ -19,7 +20,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const token = crypto.randomUUID()
-  await hubKV().set(
+  await kv.set(
     `mod:session:${token}`,
     { id: moderator.id, name: moderator.name, email: moderator.email },
     { ttl: 60 * 60 * 24 * 7 },

@@ -47,4 +47,15 @@ export default defineNuxtConfig({
   runtimeConfig: {
     siteUrl: 'http://localhost:3000',
   },
+
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@fullcalendar/vue3',
+        '@fullcalendar/daygrid',
+        '@vue/devtools-core',
+        '@vue/devtools-kit',
+      ]
+    }
+  }
 })
