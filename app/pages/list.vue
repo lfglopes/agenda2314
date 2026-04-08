@@ -77,6 +77,9 @@ function mapsUrl(location: string) {
           <p v-if="event.submitter_name" class="text-xs text-stone-400">
             {{ $t('event.organiser') }}: {{ event.submitter_name }}
           </p>
+          <div class="mt-3">
+            <AddToCalendar :event="event" />
+          </div>
         </div>
       </div>
     </div>

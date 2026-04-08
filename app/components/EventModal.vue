@@ -31,9 +31,7 @@ function mapsUrl(location: string) {
           {{ event.location }}
         </a>
         <p v-if="event.description" class="text-stone-700 whitespace-pre-line mb-6">{{ event.description }}</p>
-        <NuxtLink :to="`/event/${event.id}`" class="text-sm text-red-600 hover:underline" @click="emit('close')">
-          {{ $t('event.viewDetails') }} →
-        </NuxtLink>
+        <AddToCalendar :event="event" />
       </div>
       <div v-else class="p-6 text-stone-400">Loading…</div>
     </template>

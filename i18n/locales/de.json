@@ -7,16 +7,24 @@
   "calendar": {
     "title": "Veranstaltungskalender",
     "noEvents": "Keine Veranstaltungen an diesem Tag.",
-    "subscribe": "Kalender abonnieren",
-    "today": "Heute"
+    "subscribe": "Abonnieren",
+    "today": "Heute",
+    "subscribeGoogle": "Google Kalender",
+    "subscribeApple": "Apple Kalender / webcal",
+    "subscribeOutlook": "Outlook",
+    "copyLink": "Link kopieren",
+    "linkCopied": "Link kopiert!"
   },
   "event": {
     "location": "Ort",
     "starts": "Beginn",
     "ends": "Ende",
     "addToCalendar": "Zum Kalender hinzufügen",
-    "organiser": "Veranstalter",
-    "viewDetails": "Details anzeigen"
+    "addToGoogle": "Google Kalender",
+    "addToApple": "Apple Kalender",
+    "addToOutlook": "Outlook",
+    "downloadIcs": ".ics-Datei",
+    "organiser": "Veranstalter"
   },
   "errors": {
     "notFound": "Seite nicht gefunden"

@@ -7,16 +7,24 @@
   "calendar": {
     "title": "Calendário de eventos",
     "noEvents": "Sem eventos neste dia.",
-    "subscribe": "Subscrever calendário",
-    "today": "Hoje"
+    "subscribe": "Subscrever",
+    "today": "Hoje",
+    "subscribeGoogle": "Google Calendar",
+    "subscribeApple": "Apple Calendar / webcal",
+    "subscribeOutlook": "Outlook",
+    "copyLink": "Copiar link",
+    "linkCopied": "Link copiado!"
   },
   "event": {
     "location": "Local",
     "starts": "Início",
     "ends": "Fim",
     "addToCalendar": "Adicionar ao calendário",
-    "organiser": "Organizador",
-    "viewDetails": "Ver detalhes"
+    "addToGoogle": "Google Calendar",
+    "addToApple": "Apple Calendar",
+    "addToOutlook": "Outlook",
+    "downloadIcs": "Ficheiro .ics",
+    "organiser": "Organizador"
   },
   "errors": {
     "notFound": "Página não encontrada"
