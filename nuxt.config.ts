@@ -10,11 +10,14 @@ export default defineNuxtConfig({
     '@nuxthub/core',
   ],
 
-  colorMode: false,
+  colorMode: {
+    preference: 'light',
+    fallback: 'light',
+  },
 
   hub: {
     db: process.env.NODE_ENV === 'production'
-      ? { dialect: 'sqlite', driver: 'd1', connection: { databaseId: '08ce1509-37bb-4a05-96b4-5e510b0bbb14' } }
+      ? { dialect: 'sqlite', driver: 'd1', connection: { databaseId: '08ce1509-37bb-4a05-96b4-5e510b0bbb14' }, applyMigrationsDuringBuild: false }
       : 'sqlite',
     kv: true,
   },
@@ -64,13 +67,7 @@ export default defineNuxtConfig({
           logs: {
             enabled: true,
             head_sampling_rate: 1,
-            persist: true,
             invocation_logs: true,
-          },
-          traces: {
-            enabled: false,
-            persist: true,
-            head_sampling_rate: 1,
           },
         },
       },
