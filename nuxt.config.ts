@@ -18,7 +18,9 @@ export default defineNuxtConfig({
     db: process.env.NODE_ENV === 'production'
       ? { dialect: 'sqlite', driver: 'd1', connection: { databaseId: '08ce1509-37bb-4a05-96b4-5e510b0bbb14' }, applyMigrationsDuringBuild: false }
       : 'sqlite',
-    kv: true,
+    kv: process.env.NODE_ENV === 'production'
+      ? { binding: 'KV', namespaceId: '68dd372fe57342c6bc385153c6897248' }
+      : true,
   },
 
   css: ['~/assets/css/main.css'],
