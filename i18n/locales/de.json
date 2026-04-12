@@ -41,6 +41,7 @@
     "send": "Absenden",
     "successTitle": "Veranstaltung eingereicht!",
     "successMessage": "Bitte überprüfen Sie Ihre E-Mail, um die Einreichung zu bestätigen.",
+    "successMessageMod": "Die Veranstaltung wurde eingereicht und automatisch genehmigt.",
     "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
     "errorEndBeforeStart": "Das Enddatum muss nach dem Startdatum liegen."
   },

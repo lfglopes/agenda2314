@@ -7,7 +7,10 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'Bad request' })
   }
 
-  if (!title || !start_at || !end_at || !submitter_email) {
+  const modSession = await requireModAuth(event).catch(() => null)
+  const isMod = modSession !== null
+
+  if (!title || !start_at || !end_at || (!isMod && !submitter_email)) {
     throw createError({ statusCode: 400, statusMessage: 'Missing required fields' })
   }
 
@@ -18,8 +21,8 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const now = new Date().toISOString()
   const id = crypto.randomUUID()
-  const confirmation_token = crypto.randomUUID()
-  const token_expires_at = new Date(Date.now() + 48 * 60 * 60 * 1000).toISOString()
+  const confirmation_token = isMod ? null : crypto.randomUUID()
+  const token_expires_at = isMod ? null : new Date(Date.now() + 48 * 60 * 60 * 1000).toISOString()
 
   await db.insert(schema.events).values({
     id,
@@ -28,16 +31,16 @@ export default defineEventHandler(async (event) => {
     start_at: new Date(start_at).toISOString(),
     end_at: new Date(end_at).toISOString(),
     location: location || null,
-    submitter_email,
+    submitter_email: isMod ? modSession!.email : submitter_email,
     submitter_name: submitter_name || null,
-    status: 'unconfirmed',
+    status: isMod ? 'approved' : 'unconfirmed',
     confirmation_token,
     token_expires_at,
     created_at: now,
     updated_at: now,
   })
 
-  if (config.resendApiKey) {
+  if (!isMod && config.resendApiKey) {
     const confirmUrl = `${config.siteUrl}/confirm/${confirmation_token}`
     await $fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -60,5 +63,5 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  return { ok: true }
+  return { ok: true, autoApproved: isMod }
 })

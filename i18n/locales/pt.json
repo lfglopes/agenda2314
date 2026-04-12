@@ -41,6 +41,7 @@
     "send": "Enviar",
     "successTitle": "Evento enviado!",
     "successMessage": "Verifique o seu email para confirmar o envio do evento.",
+    "successMessageMod": "O evento foi submetido e aprovado automaticamente.",
     "error": "Ocorreu um erro. Tente novamente.",
     "errorEndBeforeStart": "A data de fim tem de ser posterior à data de início."
   },

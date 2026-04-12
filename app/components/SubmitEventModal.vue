@@ -3,6 +3,8 @@ const { t } = useI18n()
 
 const isOpen = defineModel<boolean>('open')
 
+const isMod = computed(() => !!useCookie('mod_session').value)
+
 const form = reactive({
   title: '',
   description: '',
@@ -16,6 +18,7 @@ const form = reactive({
 
 const submitting = ref(false)
 const submitted = ref(false)
+const autoApproved = ref(false)
 const error = ref<string | null>(null)
 
 async function submit() {
@@ -28,7 +31,7 @@ async function submit() {
 
   submitting.value = true
   try {
-    await $fetch('/api/events', {
+    const result = await $fetch<{ ok: boolean, autoApproved: boolean }>('/api/events', {
       method: 'POST',
       body: {
         title: form.title,
@@ -36,11 +39,12 @@ async function submit() {
         start_at: form.start_at,
         end_at: form.end_at,
         location: form.location || null,
-        submitter_email: form.submitter_email,
+        submitter_email: form.submitter_email || null,
         submitter_name: form.submitter_name || null,
         url: form.url,
       },
     })
+    autoApproved.value = result.autoApproved
     submitted.value = true
   }
   catch {
@@ -53,6 +57,7 @@ async function submit() {
 
 function onClose() {
   submitted.value = false
+  autoApproved.value = false
   error.value = null
   Object.assign(form, {
     title: '',
@@ -81,7 +86,7 @@ watch(isOpen, (val) => {
       <div v-if="submitted" class="py-4 text-center space-y-3">
         <div class="text-4xl">✓</div>
         <p class="font-semibold">{{ t('submit.successTitle') }}</p>
-        <p class="text-sm text-muted">{{ t('submit.successMessage') }}</p>
+        <p class="text-sm text-muted">{{ autoApproved ? t('submit.successMessageMod') : t('submit.successMessage') }}</p>
         <UButton variant="outline" color="neutral" class="mt-2" @click="isOpen = false">
           Fechar
         </UButton>
@@ -117,9 +122,11 @@ watch(isOpen, (val) => {
           <UInput v-model="form.location" class="w-full" />
         </UFormField>
 
-        <UFormField :label="t('submit.email')" required>
-          <UInput v-model="form.submitter_email" type="email" required class="w-full" />
-        </UFormField>
+        <template v-if="!isMod">
+          <UFormField :label="t('submit.email')" required>
+            <UInput v-model="form.submitter_email" type="email" required class="w-full" />
+          </UFormField>
+        </template>
 
         <UFormField :label="t('submit.name')">
           <UInput v-model="form.submitter_name" class="w-full" />
