@@ -18,6 +18,9 @@ logs
 .fleet
 .idea
 
+# Local wrangler config (only for running migrations locally, not for deployment)
+wrangler.json
+
 # Local env files
 .env
 .env.*
