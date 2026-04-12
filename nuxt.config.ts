@@ -54,6 +54,29 @@ export default defineNuxtConfig({
     siteUrl: 'http://localhost:3000',
   },
 
+  nitro: {
+    cloudflare: {
+      wrangler: {
+        name: 'agenda2314',
+        observability: {
+          enabled: false,
+          head_sampling_rate: 1,
+          logs: {
+            enabled: true,
+            head_sampling_rate: 1,
+            persist: true,
+            invocation_logs: true,
+          },
+          traces: {
+            enabled: false,
+            persist: true,
+            head_sampling_rate: 1,
+          },
+        },
+      },
+    },
+  },
+
   vite: {
     optimizeDeps: {
       include: [
