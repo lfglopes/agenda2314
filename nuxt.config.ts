@@ -10,9 +10,8 @@ export default defineNuxtConfig({
     '@nuxthub/core',
   ],
 
-  colorMode: {
-    preference: 'light',
-    fallback: 'light',
+  ui: {
+    colorMode: false,
   },
 
   hub: {
