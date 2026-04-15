@@ -66,43 +66,41 @@ export default defineEventHandler(async (event) => {
   const confirmation_token = isMod ? null : crypto.randomUUID()
   const token_expires_at = isMod ? null : new Date(Date.now() + 48 * 60 * 60 * 1000).toISOString()
 
-  await db.transaction(async (tx: typeof db) => {
-    await tx.insert(schema.events).values({
-      id,
-      title,
-      description: description || null,
-      start_at: new Date(start_at).toISOString(),
-      end_at: new Date(end_at).toISOString(),
-      location: location || null,
-      submitter_email: isMod ? modSession!.email : submitter_email,
-      submitter_name: submitter_name || null,
-      status: isMod ? 'approved' : 'unconfirmed',
-      confirmation_token,
-      token_expires_at,
-      created_at: now,
-      updated_at: now,
-    })
-
-    if (!isMod && config.resendApiKey) {
-      const confirmUrl = `${config.siteUrl}/confirm/${confirmation_token}`
-      await $fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${config.resendApiKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: {
-          from: 'Agenda 2314 <agenda2314@gendrix.com>',
-          to: submitter_email,
-          subject: t.subject,
-          html: `<p>${t.greeting(submitter_name)}</p>
+  if (!isMod && config.resendApiKey) {
+    const confirmUrl = `${config.siteUrl}/confirm/${confirmation_token}`
+    await $fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${config.resendApiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: {
+        from: 'Agenda 2314 <agenda2314@gendrix.com>',
+        to: submitter_email,
+        subject: t.subject,
+        html: `<p>${t.greeting(submitter_name)}</p>
 <p>${t.thanks(title)}</p>
 <p>${t.confirm}</p>
 <p><a href="${confirmUrl}">${confirmUrl}</a></p>
 <p>${t.ignore}</p>`,
-        },
-      })
-    }
+      },
+    })
+  }
+
+  await db.insert(schema.events).values({
+    id,
+    title,
+    description: description || null,
+    start_at: new Date(start_at).toISOString(),
+    end_at: new Date(end_at).toISOString(),
+    location: location || null,
+    submitter_email: isMod ? modSession!.email : submitter_email,
+    submitter_name: submitter_name || null,
+    status: isMod ? 'approved' : 'unconfirmed',
+    confirmation_token,
+    token_expires_at,
+    created_at: now,
+    updated_at: now,
   })
 
   return { ok: true, autoApproved: isMod }
